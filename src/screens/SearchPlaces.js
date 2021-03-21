@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
   Container,
   Content,
@@ -10,7 +10,10 @@ import {
   Icon,
   Left,
   Body,
+  Text,
 } from 'native-base';
+import FormSearch from '../components/FormSearch';
+import CardPlace from '../components/CardPlace';
 
 function SearchPlaces({navigation}) {
   return (
@@ -25,8 +28,29 @@ function SearchPlaces({navigation}) {
           <Title style={{color: 'black'}}>Set pickup location</Title>
         </Body>
       </Header>
+      <View style={{padding: 18, borderBottomWidth: 0.5}}>
+        <FormSearch />
+        <Button
+          iconLeft
+          rounded
+          bordered
+          dark
+          onPress={() => navigation.navigate('SetMapPlaces')}
+          style={{height: 'auto', marginVertical: 10}}>
+          <Icon
+            name="map-marked-alt"
+            type="FontAwesome5"
+            style={{fontSize: 14}}
+          />
+          <Text style={{fontSize: 14}}>Select via map</Text>
+        </Button>
+      </View>
       <Content>
-        <H1 style={styles.baseText}>Header One</H1>
+        <CardPlace />
+        <CardPlace />
+        <CardPlace />
+        <CardPlace />
+        <CardPlace />
       </Content>
     </Container>
   );
