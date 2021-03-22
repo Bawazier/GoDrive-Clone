@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: '100%',
     padding: 18,
+    elevation: 8,
     backgroundColor: 'white',
   },
   rowBetween: {
