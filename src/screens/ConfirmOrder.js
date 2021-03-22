@@ -1,79 +1,65 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Container, Header, Content, H1, Icon, Text, Button} from 'native-base';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Container, Footer, Content, Icon} from 'native-base';
+import HeaderEdit from '../components/HeaderEdit';
+import FooterCompleted from '../components/FooterCompleted';
+import FooterOrder from '../components/FooterOrder';
 
-function ConfirmOrder() {
+function ConfirmOrder({navigation}) {
   return (
     <Container style={{backgroundColor: 'green'}}>
-      <Header noShadow style={{backgroundColor: 'transparent', height: 'auto'}}>
+      <HeaderEdit />
+      <Content />
+      <Footer
+        style={{
+          backgroundColor: 'transparent',
+          elevation: 0,
+          height: 'auto',
+          flexDirection: 'column',
+        }}>
         <View
           style={{
-            backgroundColor: 'transparent',
-            width: '100%',
-            paddingTop: 50,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: 10,
+            paddingHorizontal: 10,
           }}>
-          <View
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
             style={{
-              height: 100,
-              borderRadius: 20,
               backgroundColor: 'white',
-              padding: 10,
-              flexDirection: 'row',
+              width: 50,
+              height: 50,
+              borderRadius: 50,
               alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
             }}>
-            <View
-              style={{
-                flexDirection: 'column',
-                width: '70%',
-                height: 60,
-                justifyContent: 'space-between',
-              }}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
-                <Icon
-                  name="arrow-alt-circle-up"
-                  type="FontAwesome5"
-                  style={{fontSize: 24, color: 'green', marginRight: 10}}
-                />
-                <Text>Unnamed Road</Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
-                <View
-                  style={{
-                    borderBottomColor: 'black',
-                    borderBottomWidth: 0.5,
-                    width: '90%',
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
-                <Icon
-                  name="arrow-alt-circle-up"
-                  type="FontAwesome5"
-                  style={{fontSize: 24, color: 'orange', marginRight: 10}}
-                />
-                <Text>Unnamed Road</Text>
-              </View>
-            </View>
-            <Button bordered rounded success>
-              <Text>Edit</Text>
-            </Button>
-          </View>
+            <Icon
+              name="arrow-left"
+              type="FontAwesome5"
+              style={{fontSize: 18, color: 'black'}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'white',
+              width: 50,
+              height: 50,
+              borderRadius: 50,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Icon
+              name="map-pin"
+              type="FontAwesome5"
+              style={{fontSize: 18, color: 'black'}}
+            />
+          </TouchableOpacity>
         </View>
-      </Header>
-      <Content />
+        <FooterOrder />
+      </Footer>
     </Container>
   );
 }
