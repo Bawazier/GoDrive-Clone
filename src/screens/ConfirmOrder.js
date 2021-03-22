@@ -1,23 +1,30 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useCallback, useMemo, useRef} from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Container, Footer, Content, Icon} from 'native-base';
 import HeaderEdit from '../components/HeaderEdit';
+import BottomSheet from '@gorhom/bottom-sheet';
 import FooterCompleted from '../components/FooterCompleted';
 import FooterOrder from '../components/FooterOrder';
+import CardTransport from '../components/CardTransport';
 
 function ConfirmOrder({navigation}) {
+  // ref
+  const bottomSheetRef = useRef(null);
+
+  // variables
+  const snapPoints = useMemo(() => ['50%'], []);
+
+  // callbacks
+  const handleSheetChanges = useCallback(index => {
+    console.log('handleSheetChanges', index);
+  }, []);
+
   return (
     <Container style={{backgroundColor: 'green'}}>
       <HeaderEdit />
       <Content />
-      <Footer
-        style={{
-          backgroundColor: 'transparent',
-          elevation: 0,
-          height: 'auto',
-          flexDirection: 'column',
-        }}>
+      <View style={{flex: 3}}>
         <View
           style={{
             flexDirection: 'row',
@@ -25,6 +32,7 @@ function ConfirmOrder({navigation}) {
             justifyContent: 'space-between',
             marginBottom: 10,
             paddingHorizontal: 10,
+            flex: 1,
           }}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -58,6 +66,24 @@ function ConfirmOrder({navigation}) {
             />
           </TouchableOpacity>
         </View>
+        <BottomSheet
+          ref={bottomSheetRef}
+          index={0}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}>
+          <View style={{flexDirection: 'column'}}>
+            <CardTransport />
+            <CardTransport />
+          </View>
+        </BottomSheet>
+      </View>
+      <Footer
+        style={{
+          backgroundColor: 'transparent',
+          elevation: 0,
+          height: 'auto',
+          flexDirection: 'column',
+        }}>
         <FooterOrder />
       </Footer>
     </Container>
