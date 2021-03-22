@@ -15,9 +15,9 @@ function BottomTab() {
         <Icon
           name="arrow-alt-circle-up"
           type="FontAwesome5"
-          style={{fontSize: 27, color: 'green'}}
+          style={{fontSize: 32, color: 'green', marginVertical: 4}}
         />
-        <Text>GoRide</Text>
+        <Text style={{fontSize: 12}}>GoRide</Text>
       </Button>
       <Button
         transparent
@@ -26,9 +26,9 @@ function BottomTab() {
         <Icon
           name="arrow-alt-circle-up"
           type="FontAwesome5"
-          style={{fontSize: 27, color: 'green'}}
+          style={{fontSize: 32, color: 'green', marginVertical: 4}}
         />
-        <Text>GoCar</Text>
+        <Text style={{fontSize: 12}}>GoCar</Text>
       </Button>
       <Button
         transparent
@@ -37,9 +37,9 @@ function BottomTab() {
         <Icon
           name="arrow-alt-circle-up"
           type="FontAwesome5"
-          style={{fontSize: 27, color: 'red'}}
+          style={{fontSize: 32, color: 'red', marginVertical: 4}}
         />
-        <Text>GoFood</Text>
+        <Text style={{fontSize: 12}}>GoFood</Text>
       </Button>
       <Button
         transparent
@@ -48,9 +48,9 @@ function BottomTab() {
         <Icon
           name="arrow-alt-circle-up"
           type="FontAwesome5"
-          style={{fontSize: 27, color: 'red'}}
+          style={{fontSize: 32, color: 'red', marginVertical: 4}}
         />
-        <Text>GoMart</Text>
+        <Text style={{fontSize: 12}}>GoMart</Text>
       </Button>
     </View>
   );
@@ -61,6 +61,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 10,
+    paddingHorizontal: 20,
   },
 });
 

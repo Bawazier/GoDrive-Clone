@@ -1,27 +1,34 @@
-import React from 'react';
-import {StyleSheet} from 'react-native';
+import React, {useMemo, useRef} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {
   Container,
   Content,
-  H1,
   Header,
+  Footer,
   Text,
   Button,
   Icon,
   Body,
-  Badge,
 } from 'native-base';
-// import BottomSheet from 'reanimated-bottom-sheet';
+import BottomSheet from '@gorhom/bottom-sheet';
 import BottomTab from '../components/BottomTab';
+import ModalHome from '../components/ModalHome';
 
 function Home({navigation}) {
+  // ref
+  const bottomSheetRef = useRef(null);
+
+  // variables
+  const snapPoints = useMemo(() => ['100%'], []);
+
   return (
-    <Container>
-      <Header noShadow noLeft transparent>
+    <Container style={{backgroundColor: '#FFD43B'}}>
+      <Header noShadow noLeft transparent style={{height: 'auto'}}>
         <Body
           style={{
             justifyContent: 'space-between',
             flexDirection: 'row',
+            marginVertical: 20,
           }}>
           <Button
             iconLeft
@@ -45,15 +52,27 @@ function Home({navigation}) {
           </Button>
         </Body>
       </Header>
-      <Content>
-        <H1 style={styles.baseText}>Home</H1>
-        <BottomTab handleClick={() => navigation.navigate('SearchPlaces')} />
-      </Content>
-      {/* <BottomSheet
-        snapPoints={[450, 300, 0]}
-        borderRadius={10}
-        renderContent={BottomTab}
-      /> */}
+      <Content />
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={0}
+        snapPoints={snapPoints}
+        topInset={100}
+        style="AnimatedStyle">
+        <ModalHome />
+      </BottomSheet>
+      <Footer
+        style={{
+          height: 'auto',
+          marginHorizontal: 10,
+          marginVertical: 20,
+          paddingHorizontal: 20,
+          backgroundColor: 'white',
+          borderRadius: 50,
+          elevation: 10,
+        }}>
+        <BottomTab />
+      </Footer>
     </Container>
   );
 }
