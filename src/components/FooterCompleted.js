@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Icon, Text, Button, Badge} from 'native-base';
 
-function FooterCompleted() {
+function FooterCompleted({handleFinish}) {
   return (
     <View
       style={{
@@ -100,7 +100,12 @@ function FooterCompleted() {
               style={{fontSize: 18, color: 'white'}}
             />
           </TouchableOpacity>
-          <Button block rounded success style={{width: '80%'}}>
+          <Button
+            block
+            rounded
+            success
+            onPress={handleFinish}
+            style={{width: '80%'}}>
             <Text>Perjalanan Selesai</Text>
           </Button>
         </View>
