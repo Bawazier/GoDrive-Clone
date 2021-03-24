@@ -199,6 +199,8 @@ function SearchPlaces({navigation}) {
               <CardPlace
                 pointName={item.streetName || item.subAdminArea || item.country}
                 pointAddress={item.formattedAddress}
+                originLocation={origin}
+                destinationLocation={item.position}
               />
             </TouchableOpacity>
           ))}
