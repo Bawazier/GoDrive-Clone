@@ -1,5 +1,5 @@
-import React, {useMemo, useRef} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useMemo, useRef, useEffect} from 'react';
+import {StyleSheet, PermissionsAndroid} from 'react-native';
 import {
   Container,
   Content,
@@ -15,6 +15,17 @@ import BottomTab from '../components/BottomTab';
 import ModalHome from '../components/ModalHome';
 
 function Home({navigation}) {
+  const permission = () => {
+    PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    );
+  };
+
+  useEffect(() => {
+    permission();
+  }, []);
+
   // ref
   const bottomSheetRef = useRef(null);
 
