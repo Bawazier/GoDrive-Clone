@@ -17,10 +17,10 @@ import MapDirection from '../components/MapDirection';
 function ConfirmOrder({navigation}) {
   const {
     origin_name,
-    origin_address,
+    // origin_address,
     origin_location,
     destination_name,
-    destination_address,
+    // destination_address,
     destination_location,
   } = useSelector(state => state);
   // ref
@@ -54,7 +54,10 @@ function ConfirmOrder({navigation}) {
             width: '100%',
             height: '100%',
           }}>
-          <HeaderEdit />
+          <HeaderEdit
+            originName={origin_name}
+            destinationName={destination_name}
+          />
           <Content />
           <View style={{flex: 3}}>
             <View
