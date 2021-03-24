@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, Image} from 'react-native';
 import {Icon, Text} from 'native-base';
+import StarFeedback from './StarFeedback';
 
 function ModalFeedback() {
   return (
@@ -110,7 +111,7 @@ function ModalFeedback() {
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>
           Bagaimana customer Anda?
         </Text>
-        <View style={{width: '100%', height: 200}} />
+        <StarFeedback />
       </View>
     </View>
   );
