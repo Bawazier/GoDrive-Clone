@@ -1,8 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Card, CardItem, Body, Icon} from 'native-base';
+import calculateDistance from '../helpers/calculateDistance';
 
-function CardPlace({pointName, pointAddress}) {
+function CardPlace({
+  pointName,
+  pointAddress,
+  originLocation,
+  destinationLocation,
+}) {
+  const [dist, setDist] = useState(0);
+  useEffect(() => {
+    const distance = calculateDistance(
+      originLocation.latitude,
+      originLocation.longitude,
+      destinationLocation.lat,
+      destinationLocation.lng,
+    );
+    console.log(distance.toFixed(2));
+    setDist(distance.toFixed(2));
+  }, [originLocation, destinationLocation]);
+
   return (
     <Card transparent style={{borderBottomWidth: 0.4}}>
       <CardItem>
@@ -13,7 +31,7 @@ function CardPlace({pointName, pointAddress}) {
               type="FontAwesome5"
               style={{fontSize: 18, marginVertical: 2, color: 'gray'}}
             />
-            <Text style={{color: 'gray'}}>20.6 km</Text>
+            <Text style={{color: 'gray'}}>{dist || 0} km</Text>
           </View>
           <View style={{width: 250}}>
             <Text style={{color: 'black', fontWeight: 'bold'}}>
