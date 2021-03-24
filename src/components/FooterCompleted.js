@@ -20,8 +20,8 @@ function FooterCompleted({handleFinish}) {
           padding: 4,
         }}>
         <Icon
-          name="map-pin"
-          type="FontAwesome5"
+          name="star"
+          type="FontAwesome"
           style={{fontSize: 27, color: 'black'}}
         />
         <Text style={{color: 'white', marginHorizontal: 8}}>
@@ -95,7 +95,7 @@ function FooterCompleted({handleFinish}) {
               justifyContent: 'center',
             }}>
             <Icon
-              name="map-pin"
+              name="phone-alt"
               type="FontAwesome5"
               style={{fontSize: 18, color: 'white'}}
             />

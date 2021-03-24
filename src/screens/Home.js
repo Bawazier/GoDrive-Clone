@@ -46,11 +46,15 @@ function Home({navigation}) {
             transparent
             light
             style={{height: 'auto', width: '30%'}}>
-            <Icon name="home" style={{fontSize: 14}} />
+            <Icon
+              name="percentage"
+              type="FontAwesome5"
+              style={{fontSize: 14}}
+            />
             <Text style={{fontSize: 10}}>Promo</Text>
           </Button>
           <Button iconLeft rounded light style={{height: 'auto', width: '30%'}}>
-            <Icon name="home" style={{fontSize: 14}} />
+            <Icon name="home" type="AntDesign" style={{fontSize: 14}} />
             <Text style={{fontSize: 10}}>Beranda</Text>
           </Button>
           <Button
@@ -58,7 +62,11 @@ function Home({navigation}) {
             transparent
             light
             style={{height: 'auto', width: '30%'}}>
-            <Icon name="home" style={{fontSize: 14}} />
+            <Icon
+              name="comment-alt"
+              type="FontAwesome5"
+              style={{fontSize: 14}}
+            />
             <Text style={{fontSize: 10}}>Chat</Text>
           </Button>
         </Body>

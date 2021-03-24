@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
 import {Icon, Text} from 'native-base';
 
 function ModalFeedback() {
@@ -14,11 +14,20 @@ function ModalFeedback() {
         height: '100%',
       }}>
       <View style={{flexDirection: 'row', marginVertical: 5}}>
-        <Icon
-          name="exclamation-circle"
-          type="FontAwesome5"
-          style={{fontSize: 62, color: 'black'}}
-        />
+        <View
+          style={{
+            width: 'auto',
+            height: 'auto',
+            padding: 8,
+            borderRadius: 10,
+            backgroundColor: 'orange',
+          }}>
+          <Icon
+            name="biking"
+            type="FontAwesome5"
+            style={{fontSize: 62, color: 'white'}}
+          />
+        </View>
         <Text style={{fontSize: 20, fontWeight: 'bold', marginLeft: 10}}>
           Terima kasih!
         </Text>
@@ -46,7 +55,10 @@ function ModalFeedback() {
             alignItems: 'center',
             marginVertical: 5,
           }}>
-          <View style={{width: 50, height: 50, backgroundColor: 'red'}} />
+          <Image
+            style={{width: 50, height: 50, backgroundColor: 'red'}}
+            source={require('../assets/goride_sourceFund.png')}
+          />
           <Text style={{fontSize: 32, fontWeight: 'bold', marginLeft: 4}}>
             Rp15.000
           </Text>

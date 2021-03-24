@@ -95,8 +95,8 @@ function ConfirmOrder({navigation}) {
                   justifyContent: 'center',
                 }}>
                 <Icon
-                  name="map-pin"
-                  type="FontAwesome5"
+                  name="my-location"
+                  type="MaterialIcons"
                   style={{fontSize: 18, color: 'black'}}
                 />
               </TouchableOpacity>

@@ -60,7 +60,7 @@ function FormSearch({
           justifyContent: 'space-between',
         }}>
         <Icon
-          name="arrow-alt-circle-up"
+          name="dot-circle"
           type="FontAwesome5"
           style={{fontSize: 24, color: 'orange', marginRight: 10}}
         />

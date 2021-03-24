@@ -13,7 +13,7 @@ function BottomTab() {
         transparent
         onPress={() => navigation.navigate('SearchPlaces')}>
         <Icon
-          name="arrow-alt-circle-up"
+          name="biking"
           type="FontAwesome5"
           style={{fontSize: 32, color: 'green', marginVertical: 4}}
         />
@@ -24,7 +24,7 @@ function BottomTab() {
         vertical
         onPress={() => navigation.navigate('NotFound')}>
         <Icon
-          name="arrow-alt-circle-up"
+          name="car-side"
           type="FontAwesome5"
           style={{fontSize: 32, color: 'green', marginVertical: 4}}
         />
@@ -35,7 +35,7 @@ function BottomTab() {
         vertical
         onPress={() => navigation.navigate('NotFound')}>
         <Icon
-          name="arrow-alt-circle-up"
+          name="utensils"
           type="FontAwesome5"
           style={{fontSize: 32, color: 'red', marginVertical: 4}}
         />
@@ -46,7 +46,7 @@ function BottomTab() {
         vertical
         onPress={() => navigation.navigate('NotFound')}>
         <Icon
-          name="arrow-alt-circle-up"
+          name="shopping-cart"
           type="FontAwesome5"
           style={{fontSize: 32, color: 'red', marginVertical: 4}}
         />

@@ -42,6 +42,11 @@ function FooterOrder() {
         style={{justifyContent: 'space-between', padding: 0}}>
         <Text>Order GoRide</Text>
         <Text>Rp18.000</Text>
+        <Icon
+          name="arrow-alt-circle-right"
+          type="FontAwesome5"
+          style={{color: 'white'}}
+        />
       </Button>
     </View>
   );
