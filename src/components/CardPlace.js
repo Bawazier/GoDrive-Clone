@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Card, CardItem, Body, Icon} from 'native-base';
 
-function CardPlace() {
+function CardPlace({pointName, pointAddress}) {
   return (
     <Card transparent style={{borderBottomWidth: 0.4}}>
       <CardItem>
@@ -15,13 +15,12 @@ function CardPlace() {
             />
             <Text style={{color: 'gray'}}>20.6 km</Text>
           </View>
-          <View>
+          <View style={{width: 250}}>
             <Text style={{color: 'black', fontWeight: 'bold'}}>
-              Polsek Cerme
+              {pointName || ''}
             </Text>
-            <Text style={{fontSize: 14, color: 'gray', width: '50%'}}>
-              Jl. Cerme Kidul, Cerme Kidul, Gresik, Kabupaten, Gresik, Jawa
-              Timur 61171, Indonesia
+            <Text style={{fontSize: 14, color: 'gray'}}>
+              {pointAddress || ''}
             </Text>
           </View>
         </Body>

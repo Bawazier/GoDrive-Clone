@@ -2,7 +2,12 @@ import React from 'react';
 import {View} from 'react-native';
 import {Input, Icon} from 'native-base';
 
-function FormSearch() {
+function FormSearch({
+  valueOrigin,
+  valueDestination,
+  onChangeOrigin,
+  onChangeDestination,
+}) {
   return (
     <View
       style={{
@@ -22,7 +27,12 @@ function FormSearch() {
           type="FontAwesome5"
           style={{fontSize: 24, color: 'green', marginRight: 10}}
         />
-        <Input placeholder="Your current location" />
+        <Input
+          placeholder="Your current location"
+          autoCompleteType="street-address"
+          onChangeText={e => onChangeOrigin(e)}
+          value={valueOrigin}
+        />
       </View>
       <View
         style={{
@@ -54,7 +64,13 @@ function FormSearch() {
           type="FontAwesome5"
           style={{fontSize: 24, color: 'orange', marginRight: 10}}
         />
-        <Input placeholder="Search for a destination" />
+        <Input
+          placeholder="Search for a destination"
+          autoCompleteType="street-address"
+          onChangeText={e => onChangeDestination(e)}
+          value={valueDestination}
+          autoFocus
+        />
       </View>
     </View>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Header, Icon, Text, Button} from 'native-base';
 
-function HeaderEdit() {
+function HeaderEdit({originName, destinationName}) {
   return (
     <Header noShadow style={{backgroundColor: 'transparent', height: 'auto'}}>
       <View
@@ -38,7 +38,7 @@ function HeaderEdit() {
                 type="FontAwesome5"
                 style={{fontSize: 24, color: 'green', marginRight: 10}}
               />
-              <Text>Unnamed Road</Text>
+              <Text>{originName || 'Unnamed Road'}</Text>
             </View>
             <View
               style={{
@@ -64,7 +64,7 @@ function HeaderEdit() {
                 type="FontAwesome5"
                 style={{fontSize: 24, color: 'orange', marginRight: 10}}
               />
-              <Text>Unnamed Road</Text>
+              <Text>{destinationName || 'Unnamed Road'}</Text>
             </View>
           </View>
           <Button bordered rounded success>
