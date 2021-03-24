@@ -1,10 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Text, Icon, Input} from 'native-base';
-import {useNavigation} from '@react-navigation/native';
 
-function FooterDestination() {
-  const navigation = useNavigation();
+function FooterDestination({originName, originAddress, onSetOrigin}) {
   return (
     <View style={styles.footerView}>
       <View style={styles.rowBetween}>
@@ -22,11 +20,8 @@ function FooterDestination() {
           />
         </View>
         <View>
-          <Text style={styles.textBoldStyle}>Polsek Cerme</Text>
-          <Text style={styles.textSecondary}>
-            Jl. Cerme Kidul, Cerme Kidul, Gresik, Kabupaten, Gresik, Jawa Timur
-            61171, Indonesia
-          </Text>
+          <Text style={styles.textBoldStyle}>{originName || ''}</Text>
+          <Text style={styles.textSecondary}>{originAddress || ''}</Text>
         </View>
       </View>
       <View style={styles.inputView}>
@@ -36,11 +31,7 @@ function FooterDestination() {
           style={styles.textInput}
         />
       </View>
-      <Button
-        full
-        rounded
-        success
-        onPress={() => navigation.navigate('ConfirmOrder')}>
+      <Button full rounded success onPress={onSetOrigin}>
         <Text>Set pickup location</Text>
       </Button>
     </View>

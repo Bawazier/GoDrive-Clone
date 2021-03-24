@@ -2,7 +2,11 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Text, Icon} from 'native-base';
 
-function FooterDestination() {
+function FooterDestination({
+  destinationName,
+  destinationAddress,
+  onSetDestination,
+}) {
   return (
     <View style={styles.footerView}>
       <View style={styles.rowBetween}>
@@ -20,14 +24,11 @@ function FooterDestination() {
           />
         </View>
         <View>
-          <Text style={styles.textBoldStyle}>Polsek Cerme</Text>
-          <Text style={styles.textSecondary}>
-            Jl. Cerme Kidul, Cerme Kidul, Gresik, Kabupaten, Gresik, Jawa Timur
-            61171, Indonesia
-          </Text>
+          <Text style={styles.textBoldStyle}>{destinationName || ''}</Text>
+          <Text style={styles.textSecondary}>{destinationAddress || ''}</Text>
         </View>
       </View>
-      <Button full rounded success>
+      <Button full rounded success onPress={onSetDestination}>
         <Text>Set destination location</Text>
       </Button>
     </View>
