@@ -7,4 +7,8 @@ export default {
     type: 'SET_DESTINATION',
     payload,
   }),
+  setOrder: payload => ({
+    type: 'SET_ORDER',
+    payload,
+  }),
 };

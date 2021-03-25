@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Image, View, TouchableOpacity} from 'react-native';
 import {Icon, Text, Button, Badge} from 'native-base';
 
 function FooterCompleted({handleFinish}) {
@@ -75,13 +75,13 @@ function FooterCompleted({handleFinish}) {
               </Badge>
             </View>
           </View>
-          <View
+          <Image
             style={{
               width: 50,
               height: 50,
-              backgroundColor: 'orange',
               borderRadius: 20,
             }}
+            source={require('../assets/goride_person.png')}
           />
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>

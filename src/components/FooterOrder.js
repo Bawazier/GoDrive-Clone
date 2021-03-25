@@ -1,47 +1,34 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import {Button, Text, Icon} from 'native-base';
 
-function FooterOrder() {
+function FooterOrder({handleOrder, price}) {
   return (
     <View style={styles.footerView}>
       <View style={styles.rowBetween}>
         <View style={styles.rowBetween}>
-          <View
+          <Image
             style={{
               width: 20,
               height: 20,
               backgroundColor: 'red',
               marginRight: 10,
             }}
+            source={require('../assets/goride_sourceFund.png')}
           />
           <Text style={styles.title}>LinkAja</Text>
         </View>
         <Icon name="ellipsis-h" type="FontAwesome5" style={styles.iconStyle} />
       </View>
-      {/* <View style={styles.rowBetween}>
-        <View style={styles.iconView}>
-          <Icon
-            name="map-marker-alt"
-            type="FontAwesome5"
-            style={styles.iconStyle}
-          />
-        </View>
-        <View>
-          <Text style={styles.textBoldStyle}>Polsek Cerme</Text>
-          <Text style={styles.textSecondary}>
-            Jl. Cerme Kidul, Cerme Kidul, Gresik, Kabupaten, Gresik, Jawa Timur
-            61171, Indonesia
-          </Text>
-        </View>
-      </View> */}
       <Button
         full
         rounded
         success
+        disabled={!price}
+        onPress={handleOrder}
         style={{justifyContent: 'space-between', padding: 0}}>
         <Text>Order GoRide</Text>
-        <Text>Rp18.000</Text>
+        <Text>{price && 'Rp' + price}</Text>
         <Icon
           name="arrow-alt-circle-right"
           type="FontAwesome5"

@@ -3,8 +3,10 @@ import React from 'react';
 import {View, Image} from 'react-native';
 import {Icon, Text} from 'native-base';
 import StarFeedback from './StarFeedback';
+import {useNavigation} from '@react-navigation/native';
 
-function ModalFeedback() {
+function ModalFeedback({product, sourceFund, price, tax, point, code}) {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -24,7 +26,7 @@ function ModalFeedback() {
             backgroundColor: 'orange',
           }}>
           <Icon
-            name="biking"
+            name={product === 'GoRide' ? 'biking' : 'car-side'}
             type="FontAwesome5"
             style={{fontSize: 62, color: 'white'}}
           />
@@ -48,7 +50,7 @@ function ModalFeedback() {
             marginVertical: 5,
           }}>
           <Text style={{fontWeight: 'bold'}}>Dibayar pakai</Text>
-          <Text style={{color: 'gray', marginLeft: 20}}>LinkAja</Text>
+          <Text style={{color: 'gray', marginLeft: 20}}>{sourceFund}</Text>
         </View>
         <View
           style={{
@@ -61,7 +63,7 @@ function ModalFeedback() {
             source={require('../assets/goride_sourceFund.png')}
           />
           <Text style={{fontSize: 32, fontWeight: 'bold', marginLeft: 4}}>
-            Rp15.000
+            Rp{price}
           </Text>
         </View>
       </View>
@@ -81,7 +83,7 @@ function ModalFeedback() {
             marginVertical: 5,
           }}>
           <Text style={{color: 'gray'}}>Pendapatan</Text>
-          <Text style={{fontWeight: 'bold'}}>Rp12.000</Text>
+          <Text style={{fontWeight: 'bold'}}>Rp{price - tax}</Text>
         </View>
         <View
           style={{
@@ -91,7 +93,7 @@ function ModalFeedback() {
             marginVertical: 5,
           }}>
           <Text style={{color: 'gray'}}>Point</Text>
-          <Text style={{fontWeight: 'bold'}}>+1</Text>
+          <Text style={{fontWeight: 'bold'}}>+{point}</Text>
         </View>
       </View>
       <View
@@ -100,7 +102,7 @@ function ModalFeedback() {
           justifyContent: 'center',
           marginVertical: 10,
         }}>
-        <Text style={{color: 'gray'}}>GR120398109238</Text>
+        <Text style={{color: 'gray'}}>{code}</Text>
       </View>
       <View
         style={{
@@ -111,7 +113,7 @@ function ModalFeedback() {
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>
           Bagaimana customer Anda?
         </Text>
-        <StarFeedback />
+        <StarFeedback handlePressStar={() => navigation.popToTop()} />
       </View>
     </View>
   );

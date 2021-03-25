@@ -8,13 +8,13 @@ const initialState = {
   destination_location: {},
   destination_name: '',
 
-  product_type: '',
-  product_location: {},
-  product_name: '',
-  product_price: '',
-  product_est: '',
-  product_rating: '',
-  product_plate: '',
+  order_product: '',
+  order_fund: '',
+  order_price: '',
+  order_tax: '',
+  order_est: '',
+  order_point: '',
+  order_code: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -33,6 +33,18 @@ const reducer = (state = initialState, action) => {
         destination_address: action.payload.destination_address,
         destination_location: action.payload.destination_location,
         destination_name: action.payload.destination_name,
+      };
+    }
+    case 'SET_ORDER': {
+      return {
+        ...state,
+        order_product: action.payload.order_product,
+        order_fund: action.payload.order_fund,
+        order_price: action.payload.order_price,
+        order_tax: action.payload.order_tax,
+        order_est: action.payload.order_est,
+        order_point: action.payload.order_point,
+        order_code: action.payload.order_code,
       };
     }
   }

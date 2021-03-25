@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {Icon, Text} from 'native-base';
 
-function StarFeedback() {
+function StarFeedback({handlePressStar}) {
   return (
     <View
       style={{
@@ -18,11 +18,14 @@ function StarFeedback() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Icon
-          name="star"
-          type="FontAwesome"
-          style={{fontSize: 40, color: 'gray', marginBottom: 10}}
-        />
+        <TouchableOpacity onPress={handlePressStar}>
+          <Icon
+            name="star"
+            type="FontAwesome"
+            style={{fontSize: 40, color: 'gray', marginBottom: 10}}
+          />
+        </TouchableOpacity>
+
         <Text style={{fontSize: 12}}>Kasar</Text>
       </View>
       <View
@@ -31,11 +34,14 @@ function StarFeedback() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Icon
-          name="star"
-          type="FontAwesome"
-          style={{fontSize: 40, color: 'gray', marginBottom: 10}}
-        />
+        <TouchableOpacity onPress={handlePressStar}>
+          <Icon
+            name="star"
+            type="FontAwesome"
+            style={{fontSize: 40, color: 'gray', marginBottom: 10}}
+          />
+        </TouchableOpacity>
+
         <Text style={{fontSize: 12}}>Jengkelin</Text>
       </View>
       <View
@@ -44,11 +50,14 @@ function StarFeedback() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Icon
-          name="star"
-          type="FontAwesome"
-          style={{fontSize: 40, color: 'gray', marginBottom: 10}}
-        />
+        <TouchableOpacity onPress={handlePressStar}>
+          <Icon
+            name="star"
+            type="FontAwesome"
+            style={{fontSize: 40, color: 'gray', marginBottom: 10}}
+          />
+        </TouchableOpacity>
+
         <Text style={{fontSize: 12}}>Nyebelin</Text>
       </View>
       <View
@@ -57,11 +66,14 @@ function StarFeedback() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Icon
-          name="star"
-          type="FontAwesome"
-          style={{fontSize: 40, color: 'gray', marginBottom: 10}}
-        />
+        <TouchableOpacity onPress={handlePressStar}>
+          <Icon
+            name="star"
+            type="FontAwesome"
+            style={{fontSize: 40, color: 'gray', marginBottom: 10}}
+          />
+        </TouchableOpacity>
+
         <Text style={{fontSize: 12}}>Oke lah</Text>
       </View>
       <View
@@ -70,11 +82,14 @@ function StarFeedback() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Icon
-          name="star"
-          type="FontAwesome"
-          style={{fontSize: 40, color: 'gray', marginBottom: 10}}
-        />
+        <TouchableOpacity onPress={handlePressStar}>
+          <Icon
+            name="star"
+            type="FontAwesome"
+            style={{fontSize: 40, color: 'gray', marginBottom: 10}}
+          />
+        </TouchableOpacity>
+
         <Text style={{fontSize: 12}}>Baik bgt!</Text>
       </View>
     </View>
