@@ -6,12 +6,13 @@ function FooterDestination({
   destinationName,
   destinationAddress,
   onSetDestination,
+  handleEdit,
 }) {
   return (
     <View style={styles.footerView}>
       <View style={styles.rowBetween}>
         <Text style={styles.title}>Set destination location</Text>
-        <Button small rounded bordered success>
+        <Button small rounded bordered success onPress={handleEdit}>
           <Text>Edit</Text>
         </Button>
       </View>

@@ -105,6 +105,14 @@ function SetMapPlaces({navigation}) {
     setIsNextStep(true);
   };
 
+  const handleEditOrigin = () => {
+    setGeoOrigin(false);
+  };
+  const handleEditDestination = () => {
+    setDestination(false);
+    setGeoDestination(false);
+  };
+
   return (
     <>
       {errorLocation === '' && origin ? (
@@ -121,9 +129,12 @@ function SetMapPlaces({navigation}) {
         style={{
           backgroundColor: 'transparent',
           position: 'absolute',
-          // top: 420,
-          // top: 490,
-          top: !isNextStep && geoDestination ? 490 : geoOrigin ? 420 : 700,
+          top:
+            !isNextStep && geoDestination
+              ? 490
+              : isNextStep && geoOrigin
+              ? 420
+              : 700,
           width: '100%',
           height: '100%',
         }}>
@@ -179,12 +190,14 @@ function SetMapPlaces({navigation}) {
               destinationName={geoDestination.destination_name}
               destinationAddress={geoDestination.destination_address}
               onSetDestination={handleSetDestination}
+              handleEdit={handleEditDestination}
             />
           ) : isNextStep && geoOrigin ? (
             <FooterOrigin
               originName={geoOrigin.origin_name}
               originAddress={geoOrigin.origin_address}
               onSetOrigin={handleSetOrigin}
+              handleEdit={handleEditOrigin}
             />
           ) : null}
         </Footer>

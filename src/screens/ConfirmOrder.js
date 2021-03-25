@@ -39,6 +39,7 @@ function ConfirmOrder({navigation}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(origin_location, destination_location);
     const dist = calculateDistance(
       origin_location.lat,
       origin_location.lng,

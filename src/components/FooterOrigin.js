@@ -2,12 +2,17 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Text, Icon, Input} from 'native-base';
 
-function FooterDestination({originName, originAddress, onSetOrigin}) {
+function FooterDestination({
+  originName,
+  originAddress,
+  onSetOrigin,
+  handleEdit,
+}) {
   return (
     <View style={styles.footerView}>
       <View style={styles.rowBetween}>
         <Text style={styles.title}>Set pickup location</Text>
-        <Button small rounded bordered success>
+        <Button small rounded bordered success onPress={handleEdit}>
           <Text>Edit</Text>
         </Button>
       </View>

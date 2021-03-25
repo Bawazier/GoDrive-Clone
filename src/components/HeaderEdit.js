@@ -1,8 +1,10 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Header, Icon, Text, Button} from 'native-base';
+import {useNavigation} from '@react-navigation/native';
 
 function HeaderEdit({originName, destinationName}) {
+  const navigation = useNavigation();
   return (
     <Header noShadow style={{backgroundColor: 'transparent', height: 'auto'}}>
       <View
@@ -67,7 +69,11 @@ function HeaderEdit({originName, destinationName}) {
               <Text>{destinationName || 'Unnamed Road'}</Text>
             </View>
           </View>
-          <Button bordered rounded success>
+          <Button
+            bordered
+            rounded
+            success
+            onPress={() => navigation.navigate('SearchPlaces')}>
             <Text>Edit</Text>
           </Button>
         </View>
