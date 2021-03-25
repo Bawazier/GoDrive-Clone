@@ -214,6 +214,40 @@ function SearchPlaces({navigation}) {
               />
             </TouchableOpacity>
           ))}
+        {!searchResult && (
+          <View
+            style={{
+              flexDirection: 'row',
+              paddingHorizontal: 20,
+              justifyContent: 'flex-start',
+              marginVertical: 20,
+            }}>
+            <View
+              style={{
+                width: 60,
+                height: 60,
+                backgroundColor: 'pink',
+                borderRadius: 20,
+                marginRight: 10,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Icon
+                name="biking"
+                type="FontAwesome5"
+                style={{color: 'white', fontSize: 25}}
+              />
+            </View>
+            <View style={{flexDirection: 'column', width: '80%'}}>
+              <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+                That's right, order GoRide now
+              </Text>
+              <Text style={{fontSize: 14}}>
+                Less stress on the road, more joy on the ride. Aaah.
+              </Text>
+            </View>
+          </View>
+        )}
       </Content>
     </Container>
   );
