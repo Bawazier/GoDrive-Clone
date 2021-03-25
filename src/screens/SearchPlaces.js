@@ -107,7 +107,7 @@ function SearchPlaces({navigation}) {
   }, [origin, destination]);
 
   const handleChangeOrigin = async e => {
-    await setValueOrigin(e.text);
+    await setValueOrigin(e);
     if (e.length > 2) {
       const res = await getPOI(
         e,
@@ -138,20 +138,21 @@ function SearchPlaces({navigation}) {
     position,
     streetName,
   ) => {
-    if (valueOrigin) {
+    if (valueOrigin && !valueDestination) {
       await dispatch(
         action.setOrigin({
           origin_address: formattedAddress,
-          origin_location: position,
+          origin_location: {lat: position[0], lng: position[1]},
           origin_name: streetName || 'Unnamed Road',
         }),
       );
+      setValueOrigin(streetName);
       setSearchResult();
     } else {
       await dispatch(
         action.setDestination({
           destination_address: formattedAddress,
-          destination_location: position,
+          destination_location: {lat: position[0], lng: position[1]},
           destination_name: streetName || 'Unnamed Road',
         }),
       );
@@ -201,8 +202,8 @@ function SearchPlaces({navigation}) {
               onPress={() =>
                 handlePressLocation(
                   item.displayString,
-                  item.position,
-                  item.item.place.geometry.coordinates,
+                  item.place.geometry.coordinates,
+                  item.name,
                 )
               }>
               <CardPlace
