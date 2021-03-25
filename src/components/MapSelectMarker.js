@@ -25,9 +25,9 @@ function MapSelectMarker({
       onPoiClick={e => onMarkerLocation(e)}
       onPress={e => onMarkerLocation(e)}>
       {isNextStep && position ? (
-        <Marker coordinate={position || currentPosition} pinColor="#009933" />
+        <Marker coordinate={currentPosition || position} />
       ) : !isNextStep && position ? (
-        <Marker coordinate={position} pinColor="#ffa31a" />
+        <Marker coordinate={position} />
       ) : null}
     </MapView>
   );

@@ -14,12 +14,16 @@ function MapSelectMarker({origin, destination}) {
       style={{flex: 1}}
       showsUserLocation={true}
       showsCompass={true}
-      minZoomLevel={18}
+      minZoomLevel={16}
       toolbarEnabled={false}
       zoomEnabled={false}>
-      <Marker coordinate={{latitude: origin.lat, longitude: origin.lng}} />
+      <Marker
+        coordinate={{latitude: origin.lat, longitude: origin.lng}}
+        pinColor="green"
+      />
       <Marker
         coordinate={{latitude: destination.lat, longitude: destination.lng}}
+        pinColor="orange"
       />
     </MapView>
   );
