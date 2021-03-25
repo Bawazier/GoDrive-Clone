@@ -14,10 +14,9 @@ function CardPlace({
     const distance = calculateDistance(
       originLocation.latitude,
       originLocation.longitude,
-      destinationLocation.lat,
-      destinationLocation.lng,
+      destinationLocation[1],
+      destinationLocation[0],
     );
-    console.log(distance.toFixed(2));
     setDist(distance.toFixed(2));
   }, [originLocation, destinationLocation]);
 

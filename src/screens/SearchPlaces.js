@@ -23,6 +23,7 @@ import CardPlace from '../components/CardPlace';
 import Geocoder from 'react-native-geocoder';
 import {GOOGLE_API_KEY} from '@env';
 import action from '../redux/action';
+import {getPOI} from '../libs/api';
 
 function SearchPlaces({navigation}) {
   const [searchResult, setSearchResult] = useState();
@@ -75,7 +76,6 @@ function SearchPlaces({navigation}) {
       Geocoder.fallbackToGoogle(GOOGLE_API_KEY);
       Geocoder.geocodePosition({lat: origin.latitude, lng: origin.longitude})
         .then(async res => {
-          setSearchResult(res);
           dispatch(
             action.setOrigin({
               origin_address: res[0].formattedAddress,
@@ -108,21 +108,29 @@ function SearchPlaces({navigation}) {
 
   const handleChangeOrigin = async e => {
     await setValueOrigin(e.text);
-    Geocoder.geocodeAddress(e.text)
-      .then(res => {
-        console.log(res);
-        setSearchResult(res);
-      })
-      .catch(err => console.log(err));
+    if (e.length > 2) {
+      const res = await getPOI(
+        e,
+        'poi',
+        `${origin.longitude}, ${origin.latitude}`,
+      );
+      if (res.data) {
+        setSearchResult(res.data.results);
+      }
+    }
   };
   const handleChangeDestination = async e => {
     await setValueDestination(e);
-    Geocoder.geocodeAddress(e)
-      .then(res => {
-        console.log(res);
-        setSearchResult(res);
-      })
-      .catch(err => console.log(err));
+    if (e.length > 2) {
+      const res = await getPOI(
+        e,
+        'poi',
+        `${origin.longitude}, ${origin.latitude}`,
+      );
+      if (res.data) {
+        setSearchResult(res.data.results);
+      }
+    }
   };
 
   const handlePressLocation = async (
@@ -138,6 +146,7 @@ function SearchPlaces({navigation}) {
           origin_name: streetName || 'Unnamed Road',
         }),
       );
+      setSearchResult();
     } else {
       await dispatch(
         action.setDestination({
@@ -191,16 +200,16 @@ function SearchPlaces({navigation}) {
               key={index}
               onPress={() =>
                 handlePressLocation(
-                  item.formattedAddress,
+                  item.displayString,
                   item.position,
-                  item.streetName,
+                  item.item.place.geometry.coordinates,
                 )
               }>
               <CardPlace
-                pointName={item.streetName || item.subAdminArea || item.country}
-                pointAddress={item.formattedAddress}
+                pointName={item.name}
+                pointAddress={item.displayString}
                 originLocation={origin}
-                destinationLocation={item.position}
+                destinationLocation={item.place.geometry.coordinates}
               />
             </TouchableOpacity>
           ))}
